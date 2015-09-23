@@ -1,0 +1,26 @@
+{
+  "name": "linter-lesshint",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Linter plugin for Less, using lesshint.",
+  "repository": "https://github.com/lesshint/atom-linter-lesshint",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0"
+  },
+  "dependencies": {
+    "atom-linter": "^3.2.2",
+    "atom-package-deps": "^2.1.3",
+    "lesshint": "^0.9.1"
+  },
+  "package-deps": [
+    "linter"
+  ],
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  }
+}
