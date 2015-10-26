@@ -23,6 +23,7 @@ export default class LinterLesshint {
 
     static provideLinter() {
         const Lesshint = require('lesshint');
+
         return {
             name: 'lesshint',
             grammarScopes: ['source.css.less'],
@@ -30,7 +31,6 @@ export default class LinterLesshint {
             lintOnFly: true,
             lint: (editor) => {
                 const lesshint = new Lesshint();
-
                 const text = editor.getText();
                 const filePath = editor.getPath();
                 const configFile = helper.findFile(path.dirname(filePath), '.lesshintrc');
