@@ -22,12 +22,12 @@ export default class LinterLesshint {
     }
 
     static provideLinter() {
+        const Lesshint = require('lesshint');
         return {
             grammarScopes: ['source.css.less'],
             scope: 'file',
             lintOnFly: true,
             lint: (editor) => {
-                const Lesshint = require('lesshint');
                 const lesshint = new Lesshint();
 
                 const text = editor.getText();
