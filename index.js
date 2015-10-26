@@ -24,6 +24,7 @@ export default class LinterLesshint {
     static provideLinter() {
         const Lesshint = require('lesshint');
         return {
+            name: 'LessHint',
             grammarScopes: ['source.css.less'],
             scope: 'file',
             lintOnFly: true,
