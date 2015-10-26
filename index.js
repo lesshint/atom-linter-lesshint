@@ -23,6 +23,7 @@ export default class LinterLesshint {
 
     static provideLinter() {
         return {
+            name: 'LessHint',
             grammarScopes: ['source.css.less'],
             scope: 'file',
             lintOnFly: true,
