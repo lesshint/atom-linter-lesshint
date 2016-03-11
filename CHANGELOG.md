@@ -1,4 +1,7 @@
 # Changelog
+## 1.4.0 (2016-03-12)
+* Updated `atom-linter` and `atom-package-deps` to `4.x` and utilizing new helper methods. ([b9cc24d](https://github.com/lesshint/atom-linter-lesshint/commit/b9cc24deedf5893571772fa169255cf4379a2cad))
+* Fixed an issue where the correct column wasn't always reported. ([df59a07](https://github.com/lesshint/atom-linter-lesshint/commit/df59a0798e908d534fb91a8db6c8d60bca7e853a))
 
 ## 1.3.0 (2015-12-14)
 * Updated to `lesshint` `1.2.1`. ([7301783](https://github.com/lesshint/atom-linter-lesshint/commit/73017834b87e8c52aab7d7309ef7b640554505b3))
