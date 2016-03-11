@@ -2,7 +2,6 @@
 
 import path from 'path';
 import configLoader from 'lesshint/lib/config-loader';
-import helper from 'atom-linter';
 
 export default class LinterLesshint {
     static config = {
@@ -23,17 +22,18 @@ export default class LinterLesshint {
 
     static provideLinter() {
         const Lesshint = require('lesshint');
+        const Helpers = require('atom-linter');
 
         return {
             name: 'lesshint',
             grammarScopes: ['source.css.less'],
             scope: 'file',
             lintOnFly: true,
-            lint: (editor) => {
+            lint: async (editor) => {
                 const lesshint = new Lesshint();
                 const text = editor.getText();
                 const filePath = editor.getPath();
-                const configFile = helper.findFile(path.dirname(filePath), '.lesshintrc');
+                const configFile = await Helpers.findCachedAsync(path.dirname(filePath), '.lesshintrc');
 
                 if (!configFile && this.onlyWithRc) {
                     return [];
@@ -57,7 +57,7 @@ export default class LinterLesshint {
                 return errors.map(({ linter, message, line, column, severity }) => {
                     line = line || editor.getLineCount();
 
-                    const range = helper.rangeFromLineNumber(editor, line - 1, column);
+                    const range = Helpers.rangeFromLineNumber(editor, line - 1, column);
 
                     const type = severity;
                     const html = `<span class='badge badge-flexible'>${linter}</span> ${message}`;
