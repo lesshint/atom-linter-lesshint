@@ -57,7 +57,7 @@ export default class LinterLesshint {
                 return errors.map(({ linter, message, line, column, severity }) => {
                     line = line || editor.getLineCount();
 
-                    const range = Helpers.rangeFromLineNumber(editor, line - 1, column);
+                    const range = Helpers.rangeFromLineNumber(editor, line - 1, column - 1);
 
                     const type = severity;
                     const html = `<span class='badge badge-flexible'>${linter}</span> ${message}`;
