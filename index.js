@@ -12,15 +12,15 @@ export default class LinterLesshint {
         },
     }
 
-    static get onlyWithRc() {
+    static get onlyWithRc () {
         return atom.config.get('linter-lesshint.onlyWithRc');
     }
 
-    static activate() {
+    static activate () {
         require('atom-package-deps').install('linter-lesshint');
     }
 
-    static provideLinter() {
+    static provideLinter () {
         const Lesshint = require('lesshint');
         const Helpers = require('atom-linter');
 
@@ -40,6 +40,7 @@ export default class LinterLesshint {
                 }
 
                 let config = {};
+
                 try {
                     if (configFile) {
                         config = configLoader(configFile);
@@ -65,6 +66,6 @@ export default class LinterLesshint {
                     return { type, html, filePath, range };
                 });
             }
-        }
+        };
     }
 }

@@ -1,6 +1,6 @@
 'use babel';
 
-import linter from '../index'
+import linter from '../index';
 
 describe('The lesshint provider for Linter', () => {
     const lint = linter.provideLinter().lint;
