@@ -1,4 +1,9 @@
 # Changelog
+## 1.5.0 (2016-05-12)
+* Added specs, linting, and CI configurations. ([7eba5f7](https://github.com/lesshint/atom-linter-lesshint/commit/7eba5f7a634dbe94c3f28be25ea2c8522dcc8b03), [31c4e13](https://github.com/lesshint/atom-linter-lesshint/commit/31c4e1331d4f4bc5089cfea7190dfb5ca8dc6e39), [20d5901](https://github.com/lesshint/atom-linter-lesshint/commit/20d5901c023296c3820c3afedae00305f125679e))
+* Bumped `lesshint` to `1.5.2`. ([0f4e79a](https://github.com/lesshint/atom-linter-lesshint/commit/0f4e79a7a4b7b649b023a690a457543a9d952532))
+* Updated `atom-linter` to `5.x`. ([f48eecc](https://github.com/lesshint/atom-linter-lesshint/commit/f48eeccb955b3f6744648b5d9daba5fb20faec8c))
+
 ## 1.4.0 (2016-03-12)
 * Updated `atom-linter` and `atom-package-deps` to `4.x` and utilizing new helper methods. ([b9cc24d](https://github.com/lesshint/atom-linter-lesshint/commit/b9cc24deedf5893571772fa169255cf4379a2cad))
 * Fixed an issue where the correct column wasn't always reported. ([df59a07](https://github.com/lesshint/atom-linter-lesshint/commit/df59a0798e908d534fb91a8db6c8d60bca7e853a))
