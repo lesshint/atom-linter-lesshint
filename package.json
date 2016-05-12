@@ -16,6 +16,9 @@
   "package-deps": [
     "linter"
   ],
+  "scripts": {
+      "test": "apm test"
+  },
   "providedServices": {
     "linter": {
       "versions": {
