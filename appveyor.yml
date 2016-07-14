@@ -5,6 +5,9 @@ branches:
   only:
     - master
 
+matrix:
+  fast_finish: true
+
 clone_depth: 10
 skip_tags: true
 
