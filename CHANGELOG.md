@@ -1,4 +1,9 @@
 # Changelog
+## 2.0.0 (2016-07-14)
+* Updated `lesshint` to `2.0.0`. ([014e718](https://github.com/lesshint/atom-linter-lesshint/commit/014e7189628bd2cd6f78dbe79992a65f381723cb))
+* Updated `atom-linter` to `6.0.0`. ([c5198f9](https://github.com/lesshint/atom-linter-lesshint/commit/c5198f9f196018189565c982eee01c955337d88c))
+* Updated `eslint` to `3.0.1`. ([529ed73](https://github.com/lesshint/atom-linter-lesshint/commit/529ed7323d1b28f78fb832cce5adaaaecde84ae9))
+
 ## 1.5.0 (2016-05-12)
 * Added specs, linting, and CI configurations. ([7eba5f7](https://github.com/lesshint/atom-linter-lesshint/commit/7eba5f7a634dbe94c3f28be25ea2c8522dcc8b03), [31c4e13](https://github.com/lesshint/atom-linter-lesshint/commit/31c4e1331d4f4bc5089cfea7190dfb5ca8dc6e39), [20d5901](https://github.com/lesshint/atom-linter-lesshint/commit/20d5901c023296c3820c3afedae00305f125679e))
 * Bumped `lesshint` to `1.5.2`. ([0f4e79a](https://github.com/lesshint/atom-linter-lesshint/commit/0f4e79a7a4b7b649b023a690a457543a9d952532))
