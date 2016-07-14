@@ -53,7 +53,13 @@ export default class LinterLesshint {
 
                 lesshint.configure(config);
 
-                const errors = lesshint.checkString(text, filePath);
+                let errors = [];
+
+                try {
+                    errors = lesshint.checkString(text, filePath);
+                } catch (e) {
+                    // Empty
+                }
 
                 return errors.map(({ linter, message, line, column, severity }) => {
                     line = line || editor.getLineCount();
