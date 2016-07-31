@@ -1,4 +1,8 @@
 # Changelog
+## 2.0.2 (2016-07-31)
+* Updated `lesshint` to `2.0.2` to pull in some critical bug fixes. ([1de86be](https://github.com/lesshint/atom-linter-lesshint/commit/1de86beb19f7c1cacb625b0a97dbba09903d62de))
+* Updated `atom-linter` to `7.0.0`. ([4791fcf](https://github.com/lesshint/atom-linter-lesshint/commit/4791fcf9f39ce51e8212219a9874d3220d69fbce))
+
 ## 2.0.1 (2016-07-14)
 * Fixed an issue where the plugin would crash on incomplete Less code. ([5868445](https://github.com/lesshint/atom-linter-lesshint/commit/586844511796d87cd0bab25382050fec945c770b))
 * Updated specs for new `atom-linter` behaviour. ([f32b4f7](https://github.com/lesshint/atom-linter-lesshint/commit/f32b4f725b6ea472e3901696c5123428c697d9e6))
