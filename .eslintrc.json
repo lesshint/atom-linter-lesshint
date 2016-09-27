@@ -1,9 +1,6 @@
 {
   "extends": "eslint:recommended",
   "parser": "babel-eslint",
-  "plugins": [
-    "babel"
-  ],
   "env": {
     "atomtest": true,
     "es6": true,
@@ -15,9 +12,9 @@
     "waitsForPromise": true
   },
   "rules": {
-    "babel/arrow-parens": 2,
     "array-bracket-spacing": 2,
     "arrow-body-style": [2, "always"],
+    "arrow-parens": 2,
     "arrow-spacing": 2,
     "brace-style": 2,
     "camelcase": 2,
