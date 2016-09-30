@@ -26,12 +26,15 @@ describe('The lesshint provider for Linter', () => {
 
         it('fails file that breaks lesshint', () => {
             waitsForPromise(() => {
+
+                const priorNotificationsCount = atom.notifications.getNotifications().length;
+
                 return lint(editor).then(() => {
 
                     const notifications = atom.notifications.getNotifications();
 
-                    expect(notifications[0].getType()).toEqual('error');
-                    expect(notifications[0].getMessage()).toEqual('lesshint couldn\'t check this file.');
+                    expect(notifications[priorNotificationsCount].getType()).toEqual('error');
+                    expect(notifications[priorNotificationsCount].getMessage()).toEqual('lesshint couldn\'t check this file.');
                 });
             });
         });
