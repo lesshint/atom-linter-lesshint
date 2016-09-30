@@ -13,6 +13,30 @@ describe('The lesshint provider for Linter', () => {
         });
     });
 
+    describe('lesshint-breaking files checks', () => {
+        let editor;
+
+        beforeEach(() => {
+            waitsForPromise(() => {
+                return atom.workspace.open(`${__dirname}/fixtures/lesshint-breaker.less`).then((openEditor) => {
+                    editor = openEditor;
+                });
+            });
+        });
+
+        it('fails file that breaks lesshint', () => {
+            waitsForPromise(() => {
+                return lint(editor).then(() => {
+
+                    const notifications = atom.notifications.getNotifications();
+
+                    expect(notifications[0].getType()).toEqual('error');
+                    expect(notifications[0].getMessage()).toEqual('lesshint couldn\'t check this file.');
+                });
+            });
+        });
+    });
+
     describe('invalid files checks', () => {
         let editor;
 

@@ -58,7 +58,10 @@ export default class LinterLesshint {
                 try {
                     errors = lesshint.checkString(text, filePath);
                 } catch (e) {
-                    // Empty
+                    atom.notifications.addError("lesshint couldn't check this file.", {
+                        detail: e.stack,
+                        dismissable: true
+                    });
                 }
 
                 return errors.map(({ linter, message, line, column, severity }) => {
