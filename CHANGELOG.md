@@ -1,4 +1,9 @@
 # Changelog
+## 2.1.0 (2016-10-03)
+* Better reporting when `lesshint` can't check a file. ([f12d13f](https://github.com/lesshint/atom-linter-lesshint/commit/f12d13f6c178a760a6b9ed3dfa4f1eb81b5a92a2))
+* Updated `lesshint` to `2.1.1`. ([8190277](https://github.com/lesshint/atom-linter-lesshint/commit/81902772585285073ffff1197ff8a4c44ce31207))
+* Updated `atom-linter` to `8.0.0`. ([41907de](https://github.com/lesshint/atom-linter-lesshint/commit/41907de94f681965a5884fb348830937aa3441de))
+
 ## 2.0.2 (2016-07-31)
 * Updated `lesshint` to `2.0.2` to pull in some critical bug fixes. ([1de86be](https://github.com/lesshint/atom-linter-lesshint/commit/1de86beb19f7c1cacb625b0a97dbba09903d62de))
 * Updated `atom-linter` to `7.0.0`. ([4791fcf](https://github.com/lesshint/atom-linter-lesshint/commit/4791fcf9f39ce51e8212219a9874d3220d69fbce))
