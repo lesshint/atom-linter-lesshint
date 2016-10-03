@@ -13,7 +13,36 @@ describe('The lesshint provider for Linter', () => {
         });
     });
 
+    describe('lesshint-breaking files checks', () => {
+        let editor;
+
+        beforeEach(() => {
+            waitsForPromise(() => {
+                return atom.workspace.open(`${__dirname}/fixtures/lesshint-breaker.less`).then((openEditor) => {
+                    editor = openEditor;
+                });
+            });
+        });
+
+        it('fails file that breaks lesshint', () => {
+            waitsForPromise(() => {
+
+                const priorNotificationsCount = atom.notifications.getNotifications().length;
+
+                return lint(editor).then(() => {
+
+                    const notifications = atom.notifications.getNotifications();
+
+                    expect(notifications[priorNotificationsCount].getType()).toEqual('error');
+                    expect(notifications[priorNotificationsCount].getMessage()).toEqual('lesshint couldn\'t check this file.');
+                });
+            });
+        });
+    });
+
     describe('invalid files checks', () => {
+        const Range = require('atom').Range;
+
         let editor;
 
         beforeEach(() => {
@@ -28,16 +57,16 @@ describe('The lesshint provider for Linter', () => {
             const errorName = 'emptyRule';
             const errorMessage = "There shouldn't be any empty rules present.";
 
-            lint(editor).then((messages) => {
-                expect(messages[0].type).toBeDefined();
-                expect(messages[0].type).toEqual('warning');
-                expect(messages[0].html).toBeDefined();
-                expect(messages[0].html).toEqual(`<span class='badge badge-flexible'>${errorName}</span> ${errorMessage}`);
-                expect(messages[0].filePath).toBeDefined();
-                expect(messages[0].filePath).toMatch(/.+invalid\.less$/);
-                expect(messages[0].range).toBeDefined();
-                expect(messages[0].range.length).toEqual(2);
-                expect(messages[0].range).toEqual([[1, 0], [1, 4]]);
+            waitsForPromise(() => {
+                return lint(editor).then((messages) => {
+                    expect(messages[0].type).toBeDefined();
+                    expect(messages[0].type).toEqual('warning');
+                    expect(messages[0].html).toBeDefined();
+                    expect(messages[0].html).toEqual(`<span class='badge badge-flexible'>${errorName}</span> ${errorMessage}`);
+                    expect(messages[0].filePath).toBeDefined();
+                    expect(messages[0].filePath).toMatch(/.+invalid\.less$/);
+                    expect(messages[0].range).toEqual(new Range([1, 0], [1, 4]));
+                });
             });
         });
     });
@@ -54,8 +83,10 @@ describe('The lesshint provider for Linter', () => {
         });
 
         it('allows file without errors', () => {
-            lint(editor).then((messages) => {
-                expect(messages.length).toEqual(0);
+            waitsForPromise(() => {
+                return lint(editor).then((messages) => {
+                    expect(messages.length).toEqual(0);
+                });
             });
         });
     });
@@ -74,8 +105,10 @@ describe('The lesshint provider for Linter', () => {
         });
 
         it('should not check anything when "onlyWithRc" is true and no ".lesshintrc" is found', () => {
-            lint(editor).then((messages) => {
-                expect(messages.length).toEqual(0);
+            waitsForPromise(() => {
+                return lint(editor).then((messages) => {
+                    expect(messages.length).toEqual(0);
+                });
             });
         });
     });
