@@ -12,13 +12,22 @@ export default class LinterLesshint {
         },
         globalConfig: {
             default: false,
-            title: 'Use global configuration file?',
-            type: 'boolean'
+            title: 'Use a global configuration file?',
+            type: 'boolean',
+        },
+        globalConfigDir: {
+            default: '$HOME',
+            title: 'Path to directory of global configuration file',
+            type: 'string',
         }
     }
 
     static get onlyWithRc () {
         return atom.config.get('linter-lesshint.onlyWithRc');
+    }
+
+    static get globalConfigDir () {
+        return atom.config.get('linter-lesshint.globalConfigDir');
     }
 
     static get globalConfig () {
@@ -45,7 +54,7 @@ export default class LinterLesshint {
                 let configFile = await Helpers.findCachedAsync(path.dirname(filePath), '.lesshintrc');
 
                 if (!configFile && this.globalConfig) {
-                    configFile = await Helpers.findCachedAsync(__dirname, '.lesshintrc');
+                    configFile = await Helpers.findCachedAsync(this.globalConfigDir, '.lesshintrc');
                 }
 
                 if (!configFile && this.onlyWithRc) {

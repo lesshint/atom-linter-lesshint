@@ -10,4 +10,4 @@ $ apm install linter-lesshint
 ```
 
 ## Config
-When you activate the globalConfig option you can add the config file inside the folder where this package is installed (~/.atom/packages/linter-lesshint in Linux) and it will be used for every less file.
+When you activate the globalConfig option you can add the config file inside the folder specified in the input field and it will be used for every less file.
