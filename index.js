@@ -2,6 +2,7 @@
 
 import path from 'path';
 import configLoader from 'lesshint/lib/config-loader';
+import os from 'os';
 
 export default class LinterLesshint {
     static config = {
@@ -16,7 +17,7 @@ export default class LinterLesshint {
             type: 'boolean',
         },
         globalConfigDir: {
-            default: '$HOME',
+            default: os.homedir(),
             title: 'Path to directory of global configuration file',
             type: 'string',
         }
