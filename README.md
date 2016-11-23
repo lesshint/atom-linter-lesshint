@@ -8,3 +8,6 @@ This plugin for linter provides an interface to [lesshint](https://github.com/le
 ```bash
 $ apm install linter-lesshint
 ```
+
+## Config
+When you activate the globalConfig option you can add the config file inside the folder specified in the input field and it will be used for every less file.

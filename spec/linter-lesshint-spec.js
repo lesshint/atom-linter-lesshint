@@ -112,4 +112,67 @@ describe('The lesshint provider for Linter', () => {
             });
         });
     });
+
+    describe('globalConfig setting', () => {
+        let editor;
+
+        beforeEach(() => {
+            atom.config.set('linter-lesshint.globalConfigDir', `${__dirname}/fixtures/lesshintrc`);
+        });
+
+        describe('valid file', () => {
+            beforeEach(() => {
+                waitsForPromise(() => {
+                    return atom.workspace.open(`${__dirname}/fixtures/valid-global.less`).then((openEditor) => {
+                        editor = openEditor;
+                    });
+                });
+            });
+            it('checks with global config when enabled', () => {
+                atom.config.set('linter-lesshint.globalConfig', true);
+                waitsForPromise(() => {
+                    return lint(editor).then((messages) => {
+                        expect(messages.length).toEqual(0);
+                    });
+                });
+            });
+            it('does not check with global config when disabled', () => {
+                atom.config.set('linter-lesshint.globalConfig', false);
+
+                waitsForPromise(() => {
+                    return lint(editor).then((messages) => {
+                        expect(messages.length).toEqual(1);
+                    });
+                });
+            });
+        });
+
+
+        describe('valid file', () => {
+            beforeEach(() => {
+                waitsForPromise(() => {
+                    return atom.workspace.open(`${__dirname}/fixtures/invalid-global.less`).then((openEditor) => {
+                        editor = openEditor;
+                    });
+                });
+            });
+
+            it('checks with global config when enabled', () => {
+                atom.config.set('linter-lesshint.globalConfig', true);
+                waitsForPromise(() => {
+                    return lint(editor).then((messages) => {
+                        expect(messages.length).toEqual(1);
+                    });
+                });
+            });
+            it('does not check with global config when disabled', () => {
+                atom.config.set('linter-lesshint.globalConfig', false);
+                waitsForPromise(() => {
+                    return lint(editor).then((messages) => {
+                        expect(messages.length).toEqual(0);
+                    });
+                });
+            });
+        });
+    });
 });

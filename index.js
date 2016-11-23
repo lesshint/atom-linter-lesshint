@@ -2,6 +2,7 @@
 
 import path from 'path';
 import configLoader from 'lesshint/lib/config-loader';
+import os from 'os';
 
 export default class LinterLesshint {
     static config = {
@@ -10,10 +11,28 @@ export default class LinterLesshint {
             title: 'Disable linter when no `.lesshintrc` is found in project.',
             type: 'boolean',
         },
+        globalConfig: {
+            default: false,
+            title: 'Use a global configuration file?',
+            type: 'boolean',
+        },
+        globalConfigDir: {
+            default: os.homedir(),
+            title: 'Path to directory of global configuration file',
+            type: 'string',
+        }
     }
 
     static get onlyWithRc () {
         return atom.config.get('linter-lesshint.onlyWithRc');
+    }
+
+    static get globalConfigDir () {
+        return atom.config.get('linter-lesshint.globalConfigDir');
+    }
+
+    static get globalConfig () {
+        return atom.config.get('linter-lesshint.globalConfig');
     }
 
     static activate () {
@@ -33,7 +52,11 @@ export default class LinterLesshint {
                 const lesshint = new Lesshint();
                 const text = editor.getText();
                 const filePath = editor.getPath();
-                const configFile = await Helpers.findCachedAsync(path.dirname(filePath), '.lesshintrc');
+                let configFile = await Helpers.findCachedAsync(path.dirname(filePath), '.lesshintrc');
+
+                if (!configFile && this.globalConfig) {
+                    configFile = await Helpers.findCachedAsync(this.globalConfigDir, '.lesshintrc');
+                }
 
                 if (!configFile && this.onlyWithRc) {
                     return [];
