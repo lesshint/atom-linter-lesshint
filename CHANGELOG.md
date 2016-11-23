@@ -1,4 +1,8 @@
 # Changelog
+## 2.2.0 (2016-11-23)
+* Added a `globalConfig` option to provide a way to use global configs. ([d2bd9f0](https://github.com/lesshint/atom-linter-lesshint/commit/d2bd9f074144b9ff7735d012b5235251e1e7c729))
+* Updated `lesshint` to `2.2.1`. ([6f5e88a](https://github.com/lesshint/atom-linter-lesshint/commit/6f5e88a60755965df5ede35fb8476154e8bfcd95))
+
 ## 2.1.0 (2016-10-03)
 * Better reporting when `lesshint` can't check a file. ([f12d13f](https://github.com/lesshint/atom-linter-lesshint/commit/f12d13f6c178a760a6b9ed3dfa4f1eb81b5a92a2))
 * Updated `lesshint` to `2.1.1`. ([8190277](https://github.com/lesshint/atom-linter-lesshint/commit/81902772585285073ffff1197ff8a4c44ce31207))
