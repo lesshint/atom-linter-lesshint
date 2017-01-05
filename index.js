@@ -1,7 +1,9 @@
 'use babel';
 
-import path from 'path';
 import configLoader from 'lesshint/lib/config-loader';
+import { findCachedAsync, rangeFromLineNumber } from 'atom-linter';
+import Lesshint from 'lesshint';
+import path from 'path';
 import os from 'os';
 
 export default class LinterLesshint {
@@ -40,9 +42,6 @@ export default class LinterLesshint {
     }
 
     static provideLinter () {
-        const Lesshint = require('lesshint');
-        const Helpers = require('atom-linter');
-
         return {
             name: 'lesshint',
             grammarScopes: ['source.css.less'],
@@ -50,12 +49,12 @@ export default class LinterLesshint {
             lintOnFly: true,
             lint: async (editor) => {
                 const lesshint = new Lesshint();
-                const text = editor.getText();
                 const filePath = editor.getPath();
-                let configFile = await Helpers.findCachedAsync(path.dirname(filePath), '.lesshintrc');
+
+                let configFile = await findCachedAsync(path.dirname(filePath), '.lesshintrc');
 
                 if (!configFile && this.globalConfig) {
-                    configFile = await Helpers.findCachedAsync(this.globalConfigDir, '.lesshintrc');
+                    configFile = await findCachedAsync(this.globalConfigDir, '.lesshintrc');
                 }
 
                 if (!configFile && this.onlyWithRc) {
@@ -79,6 +78,8 @@ export default class LinterLesshint {
                 let errors = [];
 
                 try {
+                    const text = editor.getText();
+
                     errors = lesshint.checkString(text, filePath);
                 } catch (e) {
                     atom.notifications.addError("lesshint couldn't check this file.", {
@@ -90,7 +91,7 @@ export default class LinterLesshint {
                 return errors.map(({ linter, message, line, column, severity }) => {
                     line = line || editor.getLineCount();
 
-                    const range = Helpers.rangeFromLineNumber(editor, line - 1, column - 1);
+                    const range = rangeFromLineNumber(editor, line - 1, column - 1);
 
                     const type = severity;
                     const html = `<span class='badge badge-flexible'>${linter}</span> ${message}`;
