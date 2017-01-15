@@ -1,4 +1,5 @@
 # linter-lesshint
+[![apm](https://img.shields.io/apm/v/linter-lesshint.svg)](https://atom.io/packages/linter-lesshint)
 [![Build Status](https://travis-ci.org/lesshint/atom-linter-lesshint.svg?branch=master)](https://travis-ci.org/lesshint/atom-linter-lesshint)
 [![Build status](https://ci.appveyor.com/api/projects/status/5j63bepxjh327qi8?svg=true)](https://ci.appveyor.com/project/lesshint/atom-linter-lesshint)
 
