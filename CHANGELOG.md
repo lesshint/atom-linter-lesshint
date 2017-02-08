@@ -1,6 +1,6 @@
 # Changelog
 ## 3.0.0 (2017-XX-XX)
-* Updated `lesshint` to `3.0.0`. ([4e734d9](https://github.com/lesshint/atom-linter-lesshint/commit/4e734d9711108b752353f4085e141bce13ddb00f))
+* Updated `lesshint` to `3.0.0`. ([4b6ac25](https://github.com/lesshint/atom-linter-lesshint/commit/4b6ac25bb8cd27283167741cbc7feb6c16c0fc67))
 
 ## 2.2.0 (2016-11-23)
 * Added a `globalConfig` option to provide a way to use global configs. ([d2bd9f0](https://github.com/lesshint/atom-linter-lesshint/commit/d2bd9f074144b9ff7735d012b5235251e1e7c729))
