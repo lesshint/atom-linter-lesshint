@@ -1,8 +1,7 @@
 'use babel';
 
-import configLoader from 'lesshint/lib/config-loader';
 import { findCachedAsync, rangeFromLineNumber } from 'atom-linter';
-import Lesshint from 'lesshint';
+import { Lesshint } from 'lesshint';
 import path from 'path';
 import os from 'os';
 
@@ -65,7 +64,7 @@ export default class LinterLesshint {
 
                 try {
                     if (configFile) {
-                        config = configLoader(configFile);
+                        config = lesshint.getConfig(configFile);
                     }
                 } catch (e) {
                     atom.notifications.addError("Something's wrong with the `.lesshintrc` file.", {
