@@ -1,6 +1,6 @@
 'use babel';
 
-import { findCachedAsync, rangeFromLineNumber } from 'atom-linter';
+import { findCachedAsync, generateRange } from 'atom-linter';
 import { Lesshint } from 'lesshint';
 import path from 'path';
 import os from 'os';
@@ -90,7 +90,7 @@ export default class LinterLesshint {
                 return errors.map(({ linter, message, line, column, severity }) => {
                     line = line || editor.getLineCount();
 
-                    const range = rangeFromLineNumber(editor, line - 1, column - 1);
+                    const range = generateRange(editor, line - 1, column - 1);
 
                     const type = severity;
                     const html = `<span class='badge badge-flexible'>${linter}</span> ${message}`;
