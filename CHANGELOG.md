@@ -1,4 +1,7 @@
 # Changelog
+## 3.0.3 (2017-05-08)
+* Updated `lesshint` to `3.3.1`. ([941ef3b](https://github.com/lesshint/atom-linter-lesshint/commit/941ef3be77f6aab47fb596b10a2996dbf8c4c9df))
+
 ## 3.0.2 (2017-04-25)
 * Updated `lesshint` to `3.2.0`. ([879e7cf](https://github.com/lesshint/atom-linter-lesshint/commit/879e7cf9b91121822c35a0afe46851994bca603a))
 
