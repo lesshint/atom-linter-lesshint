@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.0.0",
-    "eslint": "^3.0.1"
+    "eslint": "^4.1.0"
   },
   "package-deps": [
     "linter"
