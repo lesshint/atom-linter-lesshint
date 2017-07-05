@@ -1,4 +1,10 @@
 # Changelog
+## 4.0.0 (2017-07-05)
+* Updated `lesshint` to `4.0.0`. ([2ce02fc](https://github.com/lesshint/atom-linter-lesshint/commit/2ce02fc3a5fbab05d4cfe708eca138aa6b2c80f3))
+* Updated messages to the Standard Linter v2 format. ([cdb7595](https://github.com/lesshint/atom-linter-lesshint/commit/cdb7595fcfeb6f325cd231e519f68bada2389cec))
+* Updated `eslint` to `4.0.0`. ([17bd20d](https://github.com/lesshint/atom-linter-lesshint/commit/17bd20dbfa5b96d62ed7686cdd109058dca0b63a))
+* CI tests are run on Node 8. ([3072d93](https://github.com/lesshint/atom-linter-lesshint/commit/3072d93b8483879e61f9668c76f719a0a402bf65))
+
 ## 3.0.3 (2017-05-08)
 * Updated `lesshint` to `3.3.1`. ([941ef3b](https://github.com/lesshint/atom-linter-lesshint/commit/941ef3be77f6aab47fb596b10a2996dbf8c4c9df))
 
