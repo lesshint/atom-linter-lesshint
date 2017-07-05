@@ -26,15 +26,13 @@ describe('The lesshint provider for Linter', () => {
 
         it('fails file that breaks lesshint', () => {
             waitsForPromise(() => {
-
                 const priorNotificationsCount = atom.notifications.getNotifications().length;
 
                 return lint(editor).then(() => {
-
                     const notifications = atom.notifications.getNotifications();
 
                     expect(notifications[priorNotificationsCount].getType()).toEqual('error');
-                    expect(notifications[priorNotificationsCount].getMessage()).toEqual('lesshint couldn\'t check this file.');
+                    expect(notifications[priorNotificationsCount].getMessage()).toEqual("lesshint couldn't check this file.");
                 });
             });
         });
@@ -54,16 +52,13 @@ describe('The lesshint provider for Linter', () => {
         });
 
         it('fails file with errors', () => {
-            const errorName = 'emptyRule';
             const errorMessage = "There shouldn't be any empty rules present.";
+            const errorName = 'emptyRule';
 
             waitsForPromise(() => {
                 return lint(editor).then((messages) => {
-                    expect(messages[0].type).toBeDefined();
                     expect(messages[0].type).toEqual('warning');
-                    expect(messages[0].html).toBeDefined();
                     expect(messages[0].html).toEqual(`<span class='badge badge-flexible'>${errorName}</span> ${errorMessage}`);
-                    expect(messages[0].filePath).toBeDefined();
                     expect(messages[0].filePath).toMatch(/.+invalid\.less$/);
                     expect(messages[0].range).toEqual(new Range([1, 0], [1, 4]));
                 });
@@ -128,14 +123,17 @@ describe('The lesshint provider for Linter', () => {
                     });
                 });
             });
+
             it('checks with global config when enabled', () => {
                 atom.config.set('linter-lesshint.globalConfig', true);
+
                 waitsForPromise(() => {
                     return lint(editor).then((messages) => {
                         expect(messages.length).toEqual(0);
                     });
                 });
             });
+
             it('does not check with global config when disabled', () => {
                 atom.config.set('linter-lesshint.globalConfig', false);
 
@@ -147,8 +145,7 @@ describe('The lesshint provider for Linter', () => {
             });
         });
 
-
-        describe('valid file', () => {
+        describe('invalid file', () => {
             beforeEach(() => {
                 waitsForPromise(() => {
                     return atom.workspace.open(`${__dirname}/fixtures/invalid-global.less`).then((openEditor) => {
@@ -159,14 +156,17 @@ describe('The lesshint provider for Linter', () => {
 
             it('checks with global config when enabled', () => {
                 atom.config.set('linter-lesshint.globalConfig', true);
+
                 waitsForPromise(() => {
                     return lint(editor).then((messages) => {
                         expect(messages.length).toEqual(1);
                     });
                 });
             });
+
             it('does not check with global config when disabled', () => {
                 atom.config.set('linter-lesshint.globalConfig', false);
+
                 waitsForPromise(() => {
                     return lint(editor).then((messages) => {
                         expect(messages.length).toEqual(0);
