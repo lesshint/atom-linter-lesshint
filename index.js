@@ -45,7 +45,7 @@ export default class LinterLesshint {
             name: 'lesshint',
             grammarScopes: ['source.css.less'],
             scope: 'file',
-            lintOnFly: true,
+            lintsOnChange: true,
             lint: async (editor) => {
                 const lesshint = new Lesshint();
                 const filePath = editor.getPath();
@@ -90,12 +90,13 @@ export default class LinterLesshint {
                 return errors.map(({ linter, message, line, column, severity }) => {
                     line = line || editor.getLineCount();
 
-                    const range = generateRange(editor, line - 1, column - 1);
+                    const excerpt = `${linter}: ${message}`;
+                    const location = {
+                        file: filePath,
+                        position: generateRange(editor, line - 1, column - 1),
+                    };
 
-                    const type = severity;
-                    const html = `<span class='badge badge-flexible'>${linter}</span> ${message}`;
-
-                    return { type, html, filePath, range };
+                    return { excerpt, location, severity };
                 });
             }
         };

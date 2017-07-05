@@ -57,10 +57,10 @@ describe('The lesshint provider for Linter', () => {
 
             waitsForPromise(() => {
                 return lint(editor).then((messages) => {
-                    expect(messages[0].type).toEqual('warning');
-                    expect(messages[0].html).toEqual(`<span class='badge badge-flexible'>${errorName}</span> ${errorMessage}`);
-                    expect(messages[0].filePath).toMatch(/.+invalid\.less$/);
-                    expect(messages[0].range).toEqual(new Range([1, 0], [1, 4]));
+                    expect(messages[0].severity).toEqual('warning');
+                    expect(messages[0].description).toEqual(`**${errorName}** ${errorMessage}`);
+                    expect(messages[0].location.file).toMatch(/.+invalid\.less$/);
+                    expect(messages[0].location.position).toEqual(new Range([1, 0], [1, 4]));
                 });
             });
         });
