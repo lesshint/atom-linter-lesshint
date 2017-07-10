@@ -1,4 +1,7 @@
 # Changelog
+## 4.0.1 (2017-07-10)
+* Updated `lesshint` to `4.0.1`. ([fcd7c40](https://github.com/lesshint/atom-linter-lesshint/commit/fcd7c40018fec1b875cd1f2f6c44c66b31c847c1))
+
 ## 4.0.0 (2017-07-05)
 * Updated `lesshint` to `4.0.0`. ([2ce02fc](https://github.com/lesshint/atom-linter-lesshint/commit/2ce02fc3a5fbab05d4cfe708eca138aa6b2c80f3))
 * Updated messages to the Standard Linter v2 format. ([cdb7595](https://github.com/lesshint/atom-linter-lesshint/commit/cdb7595fcfeb6f325cd231e519f68bada2389cec))
