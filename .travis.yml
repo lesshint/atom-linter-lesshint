@@ -11,10 +11,6 @@ dist: trusty
 git:
   depth: 10
 
-branches:
-  only:
-    - master
-
 matrix:
   fast_finish: true
 
