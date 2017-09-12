@@ -14,7 +14,7 @@
     "lesshint": "^4.0.1"
   },
   "devDependencies": {
-    "babel-eslint": "^7.0.0",
+    "babel-eslint": "^8.0.0",
     "eslint": "^4.1.0"
   },
   "package-deps": [
