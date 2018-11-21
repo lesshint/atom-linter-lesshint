@@ -5,9 +5,6 @@ os:
   - linux
   - osx
 
-sudo: false
-dist: trusty
-
 git:
   depth: 10
 
