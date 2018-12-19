@@ -1,4 +1,7 @@
 # Changelog
+## 6.0.0 (2018-12-19)
+* Updated `lesshint` to `5.0.0`. ([43dab68](https://github.com/lesshint/atom-linter-lesshint/commit/43dab686a191cd28792ac26efc5793da9b7f47c1))
+
 ## 5.0.0 (2018-03-29)
 * Updated `lesshint` to `5.0.0`. ([60d8d05](https://github.com/lesshint/atom-linter-lesshint/commit/60d8d05c0326412a039ffd09f7f4fa5483e8fe4e))
 
